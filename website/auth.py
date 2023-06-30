@@ -13,7 +13,7 @@ def login():
 
         user = User.query.filter_by(email=email).first() #Check if user matches any email in the database
         if user:
-            if check_password_hash(user.password, password): #It will check if the password added in the form is same with the database
+            if check_password_hash(user.password, password): #It will check if the password is correct
                 flash('Logged in successfully!', category='success')
                 return redirect(url_for('views.home'))
             else:
